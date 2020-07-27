@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title TweetBaseball
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .header
+      .header-bar
+        %h1.header-bar__grid-6
+          = link_to "/" do
+            = "TweetBaseBall"
+        .header-bar__user-nav
+          = link_to "/tweets/new" do
+            = "投稿する"
+    = yield
