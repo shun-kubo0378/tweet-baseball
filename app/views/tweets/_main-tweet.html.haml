@@ -1,0 +1,18 @@
+.content
+  - @tweets.each do |tweet| 
+    .content-post{style: "background-image: url(#{tweet.image});"}
+      .more
+        %ul.more_list
+          %li 
+            = link_to '詳細', tweet_path(tweet.id), method: :get
+          %li 
+            = link_to '編集', edit_tweet_path(tweet.id), method: :get
+          %li
+            = link_to '削除', tweet_path(tweet.id), method: :delete
+
+      %p= tweet.text 
+      %span.contents__post__name
+        %p= tweet.name 
+          
+
+      
