@@ -1,11 +1,36 @@
-.content
-  .content-post{:style => "background-image: url(#{@tweet.image});"}
-    .more
-      %ul.more_list
-        %li
-          = link_to '編集', edit_tweet_path(@tweet.id), method: :get
-        %li
-          = link_to '削除', tweet_path(@tweet.id), method: :delete
-    %p= @tweet.text
-    %span.name
-      = @tweet.name
+.wrapper
+  .content
+    .content__post{:style => "background-image: url(#{@tweet.image});"}
+      - if user_signed_in? && current_user.id == @tweet.user_id
+        .content__post__more
+          %ul.more_list
+            %li
+              = link_to '編集', edit_tweet_path(@tweet.id), method: :get
+            %li
+              = link_to '削除', tweet_path(@tweet.id), method: :delete
+      %p= @tweet.text
+      %span.name
+        %a{:href => "/users/#{@tweet.user.id}"}
+          %span 投稿者
+          = @tweet.user.nickname
+
+    .content__containers
+      - if current_user
+        = form_with(model: [@tweet, @comment], local: true) do |form|
+          = form.text_area :text, placeholder: "コメントする", rows: "2"
+          = form.submit "SEND"
+      - else
+        %strong
+          %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+
+      .content__containers__comments
+        %h4 ＜コメント一覧＞
+        - if @comments
+          - @comments.each do |comment|
+            %p
+              %strong
+                = link_to comment.user.nickname, "/users/#{comment.user_id}"
+                ：
+              = comment.text
+
+

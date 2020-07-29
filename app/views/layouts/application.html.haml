@@ -12,8 +12,24 @@
       .header-bar
         %h1.header-bar__grid-6
           = link_to "/" do
-            = "TweetBaseBall"
-        .header-bar__user-nav
-          = link_to "/tweets/new" do
-            = "投稿する"
+            = "Tweet BaseBall"
+        - if user_signed_in?
+          .header-bar__user-nav
+            %span
+              = current_user.nickname
+              //.user__info
+              = link_to "マイページ", "/users/#{current_user.id}"
+              = link_to "ログアウト", destroy_user_session_path, method: :delete
+
+            //= link_to "ログアウト", destroy_user_session_path, method: :delete
+            = link_to "投稿する", new_tweet_path, class: "post"
+        - else
+          .header-bar__user-nav
+            = link_to "ログイン", new_user_session_path, class: "post"
+            = link_to "新規登録", new_user_registration_path, class: "post"
+
+    
+
+    
+
     = yield

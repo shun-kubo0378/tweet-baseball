@@ -2,12 +2,11 @@
   = form_with(url: search_tweets_path, local: true, method: :get, class: "search-form") do |form|
     = form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input"
     = form.submit "検索", class: "search-btn"
-
-
 .content
-  - @tweets.each do |tweet| 
+  - @tweets.each do |tweet|
     .content__post{style: "background-image: url(#{tweet.image});"}
       .content__post__more
+        //%span= image_tag 'arrow_top.png'
         %ul.more_list
           %li 
             = link_to '詳細', tweet_path(tweet.id), method: :get
@@ -23,6 +22,3 @@
           %span 投稿者
           = tweet.user.nickname
 
-          
-
-      
