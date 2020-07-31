@@ -4,10 +4,23 @@
   background-image: url(https://pics.prcm.jp/ab1d99bb85215/82412633/jpeg/82412633.jpeg);
   background-size: cover;
   overflow: scroll;
+  &__user{
+    color: white;
+    //text-align: center;
+    font-size: 35px;
+    border: 0px solid;
+    border-radius: 15px;
+    //box-sizing: border-box;
+    margin: auto;
+    max-width: 440px;
+    background-image: url(https://pro-foto.jp/free/img/images_big/C00331-001H.jpg);
+    margin-top: 10px;
+    //box-shadow: -5px -2px 5px white;
+  }
 }
 
 .header{
-  height: 62px;
+  height: 70px;
   background-image: url(https://image.shutterstock.com/z/stock-vector-abstract-blurred-gradient-mesh-background-in-bright-rainbow-colors-colorful-smooth-banner-template-460041640.jpg);
   top: 0;
   left: 0;
@@ -25,15 +38,20 @@
     justify-content: space-between;
     &__grid-6{
       font-size: 25px;
-      line-height: 41px;
+      line-height: 45px;
       letter-spacing: 5px;
-      font-family: Arial, Helvetica, sans-serif;
       a{
         text-decoration: none;
         color: black;
         font-weight: bold;
         text-shadow: -5px -2px 3px white;
+        font-family: cursive;
+        font-size: 35px;
+        &:hover{
+          color: blue;
+        }
       }
+
     }
     &__user-nav{
       //font-size: 20px;
@@ -45,13 +63,72 @@
       //display: flex;
       align-items: center;
       span{
-        color: black;
+        font-weight: inherit;
+        &:hover{
+          color: red;
+        }
       }
-      a{
-        text-decoration: none;
-        //border: 2px solid white;
-        padding: 5px;
-        //border-radius: 5px;
+      .posts{
+        a{
+          text-decoration: none;
+          padding: 10px;
+          color: lightslategray;
+          border: 1px solid;
+          border-radius: 10px;
+          background-color: lightblue;
+          &:hover{
+            color: black;
+          }
+        }
+      }
+
+      span{
+        color: black;
+        margin: 0 10px;
+        line-height: 50px;
+        margin-left: 30px;
+        &:hover ul.user__info{
+          display: block;
+        }
+      }
+      ul.user__info{
+        position: absolute;
+        z-index: 1;
+        display: none;
+        
+
+        li{
+          //margin-left: 0;
+          display: flex;
+          flex-direction: column;
+          &:hover {
+            border-radius: 10px;
+          }
+          a{
+            color: lightslategray;
+            margin: 0 0 5px 0;
+            border: 1px solid;
+            border-radius: 10px;
+            text-decoration: none;
+            background-color: lightblue;
+            &:hover{
+              color: black;
+            }
+          }
+        }
+      }
+      .post{
+        a{
+          text-decoration: none;
+          padding: 10px;
+          color: lightslategray;
+          border: 1px solid;
+          border-radius: 10px;
+          background-color: lightblue;
+          &:hover{
+            color: black;
+          }
+        }
       }
     }
   }
@@ -66,7 +143,7 @@
     .search-input{
       margin: 20px ;
       height: 40px;
-      border: 2px solid ;
+      border: 0px solid ;
       border-radius: 10px;
       width: 350px;
       padding: 0 5px;
@@ -74,9 +151,9 @@
     .search-btn{
       height: 40px;
       width: 80px;
-      border: 2px solid;
+      border: 0px solid;
       border-radius: 15px;
-      background: lightblue;
+      background: lightgray;
     }
   }
 }
@@ -102,6 +179,7 @@
     border-radius: 3px;
     box-shadow: 0 0 10px rgba(41,41,41,0.2);  
     color: black;
+    
     p{
       //position: absolute;
       left: 30px;
@@ -111,6 +189,7 @@
       font-size: 20px;
       text-shadow: -1px -1px 3px white;
       font-weight: bold;
+      
       //z-index: 2;
       //font-weight: bold;
       //text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
@@ -120,32 +199,93 @@
       right: 30px;
       bottom: 30px;
       z-index: 2;
+      border: 0px solid;
+      //background-color: white;
+      border-radius: 10px;
+      &:hover{
+        color: red;
+      }
+
       //font-size: 13px;
 
       a{
         text-decoration: none;
         text-shadow: -1px -1px 3px white;
+        color: black;
+        &:hover{
+          color: red;
+        }
       }
       
     }
     &__more{
       position: absolute;
       cursor: pointer;
-      top: 20px;
+      top: 0px;
       right: 30px;
       z-index: 2;
       height: 100px;
       width: 80px;
+      span{
+        border: 0px solid;
+        font-family: cursive;
+        text-shadow: -1px -1px 3px white;
+        //background-color: white;
+        &:hover{
+          color: red;
+        }
+        
+        &:hover ul.more_list{
+          display: block;
+          
+        }
+      }
+      ul.more_list{
+        position: absolute;
+        z-index: 1;
+        display: none;
+        width: 32px;
+        //background-color: lightblue;
+        border-radius: 20px;
+        border: 0px;
+      }
       a{
         text-decoration: none;
         text-shadow: -1px -1px 3px white;
-        text-shadow: white;
+        //text-shadow: white;
+        color: black;
+        &:hover{
+          color: red;
+        }
+        
       }
+    }
+    &__link{
+      position: absolute;
+      bottom: 30px;
+      .iine__button{
+        background: linear-gradient(to right, #feb400, #FFE300);
+        line-height: 42px;
+        color: #6d3701;
+        font-size: 14px;
+        display: inline-block;
+        padding: 0 18px;
+        border-radius: 100px;
+        font-weight: bold;
+     }
     }
   }
   &__containers{
     margin: 20px 0;
     padding: 30px;
+
+    strong{
+      margin: 0 10px 0 0;
+      p{
+        color: red;
+        font-size: 20px;
+      }
+    }
     //box-shadow: 0 0 10px rgba(41,41,41,0.2);
     //background-color: white;
     //box-sizing: border-box;
@@ -163,6 +303,8 @@
     &__comments{
       margin: 10px;
       padding: 10px;
+      background-color: white;
+      border-radius: 10px;
       h4{
         text-align: center;
         margin-bottom: 10px;
