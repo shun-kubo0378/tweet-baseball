@@ -52,3 +52,6 @@ production:
   database: tweet_baseball_production
   username: tweet_baseball
   password: <%= ENV['TWEET_BASEBALL_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
